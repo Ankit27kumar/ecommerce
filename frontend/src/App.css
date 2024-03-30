@@ -1,0 +1,202 @@
+/* navbar */
+.navbar-brand{
+  font-size: 34px !important;
+  color:#8A9A5B !important;
+}
+
+.nav-link{
+  color:black !important;
+  margin:0 24px 0 0 !important;
+  font-size: 17px !important;
+}
+.nav-link:hover{
+color:#8A9A5B !important;
+}
+.nav-link:focus{
+  color:#8A9A5B !important;
+}
+.bg-body-tertiary{
+  background-color: #FAF3E9 !important;
+}
+.navbar-nav{
+  position: absolute !important;
+  right: 80px !important;
+}
+/* .icon{
+  position: absolute !important;
+  right: 80px !important;
+} */
+.userbutton{
+  margin-left: 60px !important;
+}
+.userlogin{
+    display: inline-block !important;
+    align-items: center !important;
+}
+.signupcard {
+    padding: 10px !important;
+    align-items: center !important;
+    width: 400px !important;
+  }
+  .sg{
+    margin:100px 0 100px 0 !important;
+  }
+  
+  .signupbutton {
+    width: 100% !important;
+    background-color: black !important;
+    border: none !important;
+  }
+  
+  .signupbutton:hover {
+    background-color: #ffaa00 !important;
+  }
+  
+  .formdet {
+    border: 2px solid #637381 !important;
+    border-radius: 3px !important;
+  }
+  
+  .formdet:focus {
+    box-shadow: none !important;
+    border-color: black !important;
+  }
+  
+  .signinq {
+    text-decoration: none !important;
+    color: black !important;
+  }
+  
+  .notmember {
+    color: #637381 !important;
+    display: inline-block !important;
+  }
+  .facebook{
+  color:white !important;
+  background-color: #316FF6 !important;
+  width: 80px !important;
+  border:1px solid #316FF6 !important;
+  margin:10px !important;  
+  }
+  .facebook:hover{
+    background-color:  #3b5998 !important;
+  }
+  .twitter{
+      color:white !important;
+      background-color: #1c9cea !important;
+      width: 80px !important;
+      border:1px solid #1c9cea !important;
+      margin:10px !important;
+  }
+  .twitter:hover{
+    background-color:#1DA1F2 !important ;
+  }
+  .envelope{
+    color:white !important;
+      background-color: #d64937 !important;
+      width: 80px !important;
+      border:1px solid #d64937 !important;
+      margin:10px !important;
+  }
+  .fgpas{
+    text-decoration: none !important;
+    color:#637381 !important;
+    margin-bottom: 0 !important;
+    margin-top: 40px !important;
+  
+  }
+  .fgpas:hover{
+    color:rgb(40, 115, 153) !important;
+    
+  }
+  .connect{
+    color:#637381 !important;
+    margin-top: 40px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* coursel */
+  .slide-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    height: 100% !important;
+  }
+  
+  .image-container {
+    height: 80% !important;
+    width: 40% !important;
+    text-align: center !important; /* Center images horizontally */
+  }
+  
+  .text-container {
+    width: 60% !important;
+    text-align: center !important; /* Center text horizontally */
+  }
+  /* features */
+  #features {
+    padding: 80px!important;
+  }
+  .fettitle{
+    font-size: 1.5em !important;
+    color:#333333 !important;
+  }
+  .fedetail{
+    color:#aeaeae !important;
+    font-size: 1.2em !important;
+  }
+ 
+
+  /* footer */
+  .footer {
+    padding: 80px  80px 20px 80px  !important;
+    background-color: #FAF3E9 !important;
+    color: black !important;
+  }
+  
+  .fodetail {
+    font-size: 15px !important;
+    line-height: 24px !important;
+    color: black !important;
+    margin-bottom: 30px !important;
+    max-width: 260px !important;
+  }
+  
+  .fotitle {
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    margin-bottom: 35px !important;
+  }
+  
+  .socialhandle {
+    margin: 5px !important;
+    /* font-size: 20px !important; */
+    color: black !important;
+  }
+  
+  .socialhandle:hover {
+    color: #8A9A5B !important;
+  }
+  
+  .folink {
+    transition: transform 0.9s ease-in-out !important;
+    text-decoration: none !important;
+    margin-bottom: 12px !important;
+    font-size: 15px !important;
+    line-height: 30px !important;
+    color: black !important;
+  }
+  
+  .folink:hover {
+    color: #8A9A5B !important; /* Change to desired hover color */
+ }
+ .mainbrand{
+  font-size:30px !important;
+  color:#8A9A5B !important;
+ }
+ .query{
+  margin-bottom: 0 !important;
+  color:#aeaeae !important;
+ }
+  
+  
