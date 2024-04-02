@@ -8,6 +8,9 @@ import Signin from './Signin';
 import Signup from './Signup';
 import Home from './Home';
 import Footer from './Footer';
+import Adsignin from './Adsignin';
+import Adsignup from './Adsignup';
+import Profile from './Profile';
 
 
 function App() {
@@ -20,8 +23,11 @@ function App() {
      <Header />
         <Routes>
         <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/user-login" element={<Signin />} />
+          <Route path="/usersignup" element={<Signup />} />
+          <Route path="/admin-login" element={<Adsignin />} />
+          <Route path="/adminsignup" element={<Adsignup />} />
+          <Route path="/profile" element={<Profile />} />
          
         </Routes>
         <Footer />

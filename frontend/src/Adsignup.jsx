@@ -16,15 +16,16 @@ import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 
 
-function Signin() {
+function Adsignup() {
   const [username, getUsername] = useState("");
   const [password, getPassword] = useState("");
   const [user, userExit] = useState(null);
   const [mess, getMess] = useState(null);
   // const history = useHistory(); 
 
-  function onPress() {
-    fetch("http://localhost:4000/user/signin", {
+  function onPress1() {
+    
+    fetch("http://localhost:4000/user/signup", {
       method: "POST",
       body: JSON.stringify({
         username: username,
@@ -43,19 +44,18 @@ function Signin() {
       });
   }
 
-  if (user) {
-    return (
-      <div>
-
-        {window.open("/")}
-      </div>
-
+  if(user){
+    return(
+        <>
+            {window.open("/signin")}
+        </>
     )
-  }
+}
   return (
     <center className='sg'>
       <Card className='signupcard'>
-        <h4>Welcome to User Signin Page</h4>
+        <h4>Welcome to Skai</h4>
+        {user}
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control className='formdet' type="email" placeholder="Email/Username" onChange={(e) => {
@@ -68,8 +68,8 @@ function Signin() {
               getPassword(e.target.value)
             }} />
           </Form.Group>
-          <Button className='signupbutton' variant="primary" type="submit" onClick={onPress}>
-            Sign In
+          <Button className='signupbutton' variant="primary" type="submit" onClick={onPress1}>
+            Sign up
           </Button>
 
 
@@ -77,8 +77,7 @@ function Signin() {
           <Button className='facebook' variant="dark" href=""><FontAwesomeIcon icon={faFacebookF} /></Button>
           <Button className='twitter' variant="dark" href=""> <FontAwesomeIcon icon={faTwitter} /></Button>
           <Button className='envelope' variant="dark" href=""><FontAwesomeIcon icon={faEnvelope} /></Button>
-          <p><Link className='fgpas' href="">Forgot Password?</Link></p>
-          <p className='notmember'> Not a member yet?  </p><Link className='signinq' href="/usersignup">Sign Up</Link>
+     
 
         </Form>
       </Card>
@@ -87,4 +86,4 @@ function Signin() {
   )
 }
 
-export default Signin;
+export default Adsignup;

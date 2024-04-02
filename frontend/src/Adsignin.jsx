@@ -16,7 +16,7 @@ import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 
 
-function Signin() {
+function Adsignin() {
   const [username, getUsername] = useState("");
   const [password, getPassword] = useState("");
   const [user, userExit] = useState(null);
@@ -55,7 +55,7 @@ function Signin() {
   return (
     <center className='sg'>
       <Card className='signupcard'>
-        <h4>Welcome to User Signin Page</h4>
+        <h4>Welcome to Admin signin Page</h4>
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control className='formdet' type="email" placeholder="Email/Username" onChange={(e) => {
@@ -78,7 +78,7 @@ function Signin() {
           <Button className='twitter' variant="dark" href=""> <FontAwesomeIcon icon={faTwitter} /></Button>
           <Button className='envelope' variant="dark" href=""><FontAwesomeIcon icon={faEnvelope} /></Button>
           <p><Link className='fgpas' href="">Forgot Password?</Link></p>
-          <p className='notmember'> Not a member yet?  </p><Link className='signinq' href="/usersignup">Sign Up</Link>
+          <p className='notmember'> Not a member yet?  </p><Link className='signinq' href="/adminsignup">Sign Up</Link>
 
         </Form>
       </Card>
@@ -87,4 +87,4 @@ function Signin() {
   )
 }
 
-export default Signin;
+export default Adsignin;

@@ -3,7 +3,13 @@
   font-size: 34px !important;
   color:#8A9A5B !important;
 }
-
+.menuitem{
+  text-decoration: none !important;
+  color:black !important;
+}
+.menuitem:hover{
+  color:#8A9A5B !important;
+}
 .nav-link{
   color:black !important;
   margin:0 24px 0 0 !important;
@@ -44,12 +50,13 @@ color:#8A9A5B !important;
   
   .signupbutton {
     width: 100% !important;
-    background-color: black !important;
+    background-color: #FAF3E9 !important;
     border: none !important;
   }
   
   .signupbutton:hover {
-    background-color: #ffaa00 !important;
+    background-color: #8A9A5B !important;
+    color:black !important;
   }
   
   .formdet {
@@ -198,5 +205,66 @@ color:#8A9A5B !important;
   margin-bottom: 0 !important;
   color:#aeaeae !important;
  }
+ #aboutus{
+  padding:40px 80px 30px  80px !important;
+ }
+ .mission{
+  padding-top:20px !important;
+ }
+ .solution{
+  padding-top:20px !important;
+ }
+ .aboutusheading{
+  font-size: 40px !important;
+  color:#8A9A5B !important;
+  font-weight: 600 !important;
+ }
+ .heading{
+  font-size: 25px !important;
+  padding-top:30px !important;
+ }
+ .artifexlink{
+  text-decoration: none !important;
+  color:#8A9A5B !important;
   
-  
+ }
+ .welcome{
+  font-size: 20px !important;
+ } 
+ .uppernav{
+  background-color: #8A9A5B !important;
+  color:white !important;
+ }
+ #contactus{
+  padding:40px 80px 30px  80px !important;
+ } 
+ .contactdec {
+  color: #8A9A5B !important;
+  font-size: 30px !important;
+  font-weight: 600 !important;
+  margin-bottom: 0 !important;
+  line-height: 1 !important;
+
+}
+
+.fomes {
+  margin-bottom: 0 !important;
+  color: #637381 !important;
+  font-weight: 100 !important;
+  font-size: 18px !important;
+  margin-top: 15px !important;
+}
+
+.sendmessage {
+  margin: 20px !important;
+  align-items: center !important;
+  background-color: #8A9A5B !important;
+}
+.condetail{
+  padding-top:20px !important;
+}
+.detail{
+  max-width: 450px !important;
+  font-size: 18px !important;
+  color:#637381 !important;
+}

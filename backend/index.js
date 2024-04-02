@@ -1,5 +1,4 @@
 const express = require("express");
-const react = require("react")
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -20,9 +19,17 @@ const userSchema = new mongoose.Schema({
     username: String,
     password: String
 })
+const productSchema = new mongoose.Schema({
+    title:String,
+    description:String,
+    price:Number,
+    offer:Number,
+    image:String
+})
 
 const Admin = mongoose.model("Admin", adminSchema);
 const User = mongoose.model("User", userSchema);
+const Product = mongoose.model("Product", productSchema);
 mongoose.connect('mongodb+srv://2022007381ankit:CBcmaL3pShirFMPa@cluster0.etoup5d.mongodb.net/artifex').then(() => {
     console.log("Connected to MongoDB");
 }).catch((err) => {
@@ -114,8 +121,11 @@ app.post("/user/signin", async(req,  res)=>{
       }
 })
 
-app.post("/additem", authenticateJwt, async (req, res)=>{
-    res.send("item added");
+// add product here
+app.post("admin/additem", authenticateJwt, async (req, res)=>{
+    const product = new Product(req.body);
+    await product.save();
+    res.json({ message: 'Course created successfully', productId: product.id });
 })
 
 app.listen(PORT, () => {
