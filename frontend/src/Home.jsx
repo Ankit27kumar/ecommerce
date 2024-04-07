@@ -24,11 +24,11 @@ function Home() {
     setIndex(selectedIndex);
   };
 
-  // const slides = [
-  //   { image1: saree1, image2: saree2, label: 'Silken Splendor', text: 'Luxurious handloom sarees, woven with tradition and grace', bgColor: '#FAF3E9' },
-  //   { image1: frock1, image2: frock2, label: 'Charming Chic', text: 'Cute and comfy handloom frocks for your little fashionistas.', bgColor: '#FAF3E9' },
-  //   { image1: suit1, image2: suit2, label: 'Sophisticated Threads', text: 'Timeless handloom suits that blend tradition with modern flair.', bgColor: '#FAF3E9' },
-  // ];
+  const slides = [
+    { image1: saree1, image2: saree2, label: 'Silken Splendor', text: 'Luxurious handloom sarees, woven with tradition and grace', bgColor: '#FAF3E9' },
+    { image1: frock1, image2: frock2, label: 'Charming Chic', text: 'Cute and comfy handloom frocks for your little fashionistas.', bgColor: '#FAF3E9' },
+    { image1: suit1, image2: suit2, label: 'Sophisticated Threads', text: 'Timeless handloom suits that blend tradition with modern flair.', bgColor: '#FAF3E9' },
+  ];
 
   return (
     <>
