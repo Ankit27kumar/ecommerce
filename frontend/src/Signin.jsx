@@ -23,7 +23,9 @@ function Signin() {
   const [mess, getMess] = useState(null);
   // const history = useHistory(); 
 
-  function onPress() {
+  function onPress(event) {
+    console.log("Control is here");
+    event.preventDefault(); // Prevent default form submission
     fetch("http://localhost:4000/user/signin", {
       method: "POST",
       body: JSON.stringify({
@@ -32,7 +34,7 @@ function Signin() {
       }),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer " + localStorage.getItem("token")
+        // "Authorization": "Bearer " + localStorage.getItem("token")
       }
     }).then(resp => resp.json())
       .then(data => {
@@ -42,20 +44,18 @@ function Signin() {
         userExit(data.token);
       });
   }
-
-  if (user) {
-    return (
-      <div>
-
-        {window.open("/")}
-      </div>
-
+  if(user){
+    return(
+      <>
+                 {window.open("/")}
+             </>
     )
   }
   return (
     <center className='sg'>
       <Card className='signupcard'>
         <h4>Welcome to User Signin Page</h4>
+        {mess}
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control className='formdet' type="email" placeholder="Email/Username" onChange={(e) => {

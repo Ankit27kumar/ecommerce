@@ -13,11 +13,13 @@ const SECRET = "R56etdc";
 
 const adminSchema = new mongoose.Schema({
     username: String,
-    password: String
+    password: String,
+    Items:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }]
 })
 const userSchema = new mongoose.Schema({
     username: String,
-    password: String
+    password: String,
+    productitem:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }]
 })
 const productSchema = new mongoose.Schema({
     title:String,
@@ -30,7 +32,7 @@ const productSchema = new mongoose.Schema({
 const Admin = mongoose.model("Admin", adminSchema);
 const User = mongoose.model("User", userSchema);
 const Product = mongoose.model("Product", productSchema);
-mongoose.connect('mongodb+srv://2022007381ankit:CBcmaL3pShirFMPa@cluster0.etoup5d.mongodb.net/artifex').then(() => {
+mongoose.connect('mongodb+srv://2022007381ankit:JsFPxJpBJV0zUEd2@cluster0.etoup5d.mongodb.net/artifex').then(() => {
     console.log("Connected to MongoDB");
 }).catch((err) => {
     console.error("Error connecting to MongoDB:", err);
@@ -56,7 +58,7 @@ const authenticateJwt = (req, res, next) => {
   };
   
 
-app.post("/admin/signup", async (req, res) => {
+  app.post("/admin/signup", async (req, res) => {
     try {
         const { username, password } = req.body;
         const adminexit = await Admin.findOne({ username: username });
@@ -88,6 +90,20 @@ app.post("/admin/signin", async(req,  res)=>{
         res.status(500).json({ message: 'Error logging in' });
       }
 })
+
+app.get("/username", authenticateJwt , async(req, res)=>{
+    const user = req.user.username;
+    const admin = await Admin.findOne({username: user});
+    if(admin){
+        res.json({
+            username: admin.username
+        })
+        console.log(admin);
+    }else{
+        res.status(403).json({message: 'Invalid Credentials'})
+    }
+})
+
 app.post("/user/signup", async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -121,12 +137,60 @@ app.post("/user/signin", async(req,  res)=>{
       }
 })
 
-// add product here
-app.post("admin/additem", authenticateJwt, async (req, res)=>{
-    const product = new Product(req.body);
-    await product.save();
-    res.json({ message: 'Course created successfully', productId: product.id });
+app.post("/admin/addproduct", authenticateJwt, async (req, res)=>{
+    try {
+        const {title, description, price , offer, image} = req.body;
+        const newProduct = new Product({title, description, price , offer, image });
+        await newProduct.save();
+        
+        const admin = await Admin.findOne({ username: req.user.username });
+        if (admin) {
+          admin.Items.push(newProduct);
+          await admin.save();
+          res.status(200).json(newProduct);
+        } else {
+          res.status(403).json({ message: 'User not found' });
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error adding Product' });
+      }
 })
+
+app.get("/admin/product", authenticateJwt, async (req, res) =>{
+    try{
+        const user = req.user.username;
+        const admin = await Admin.findOne({ username: user }).populate('Items');
+        const Items = admin.Items;
+        res.json({ Items });
+    }catch(error){
+        console.log(error);
+        res.status(500).json({ message:"Error in getting product"})
+    }
+})
+
+app.get("/getproduct", async (req, res) => {
+    try {
+        const products = await Product.find();
+        res.json(products);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
+app.delete("/admin/delete/:productId", authenticateJwt, async (req, res) => {
+    try {
+      const productIdId = req.params.productId;
+      await Product.deleteOne({ _id: productIdId });
+      console.log('product deleted successfully');
+      res.status(200).send('Product deleted successfully');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error deleting note');
+    }
+  });
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

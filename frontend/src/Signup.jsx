@@ -23,8 +23,10 @@ function Signup() {
   const [mess, getMess] = useState(null);
   // const history = useHistory(); 
 
-  function onPress1() {
-    
+
+ 
+  function onPress1(event) {
+    event.preventDefault();
     fetch("http://localhost:4000/user/signup", {
       method: "POST",
       body: JSON.stringify({
@@ -33,7 +35,7 @@ function Signup() {
       }),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer " + localStorage.getItem("token")
+        // "Authorization": "Bearer " + localStorage.getItem("token")
       }
     }).then(resp => resp.json())
       .then(data => {
@@ -47,7 +49,7 @@ function Signup() {
   if(user){
     return(
         <>
-            {window.open("/signin")}
+            {window.open("/user-login")}
         </>
     )
 }

@@ -1,13 +1,13 @@
-import { useState } from 'react';
-// import { map } from "./chunk-CKXVUD7P.js";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Carousel from 'react-bootstrap/Carousel';
-import saree1 from '/images/slider/saree1.png';
-import saree2 from '/images/slider/saree2.png';
-import frock1 from '/images/slider/frock1.png';
+import saree1 from '/images/slider/art1.png';
+import saree2 from '/images/slider/art2.png';
+import frock1 from '/images/slider/painting1.png';
+import frock2 from '/images/slider/painting2.png';
+import suit1 from '/images/slider/pot1.png';
+import suit2 from '/images/slider/pot2.png';
 import TextField from '@mui/material/TextField';
-import frock2 from '/images/slider/frock2.png';
-import suit1 from '/images/slider/suit1.png';
-import suit2 from '/images/slider/suit2.png';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import CardContent from '@mui/material/CardContent';
@@ -19,15 +19,40 @@ import Header from './Header';
 
 function Home() {
   const [index, setIndex] = useState(0);
+  const [product, setProduct] = useState([]);
+  const [otherproduct, getOtherproduct] = useState([]);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/getproduct", {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("token")
+          }
+        });
+        const data = response.data;
+        console.log(data);
+        const items = data.slice(0, 4);
+        const x = Math.round( Math.random())
+        const item2 = data.slice(x, x+4);
+        console.log(item2);
+        getOtherproduct(item2);
+        setProduct(items);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchData();
+  }, []);
+
   const slides = [
-    { image1: saree1, image2: saree2, label: 'Silken Splendor', text: 'Luxurious handloom sarees, woven with tradition and grace', bgColor: '#FAF3E9' },
-    { image1: frock1, image2: frock2, label: 'Charming Chic', text: 'Cute and comfy handloom frocks for your little fashionistas.', bgColor: '#FAF3E9' },
-    { image1: suit1, image2: suit2, label: 'Sophisticated Threads', text: 'Timeless handloom suits that blend tradition with modern flair.', bgColor: '#FAF3E9' },
+    { image1: saree1, image2: saree2, label: 'Hand painted pot', text: 'Buy authentic hand painted product', bgColor: '#FAF3E9' },
+    { image1: suit1, image2: suit2, label: 'Mud Pot', text: 'Buy hand made mud pot', bgColor: '#FAF3E9' }
   ];
 
   return (
@@ -99,10 +124,40 @@ function Home() {
 
         </Grid>
       </section>
+      <section className='prodct'>
+      <center>
+      <p className='aboutusheading'>Our latest product</p>
+      <Grid className='teamcon' container spacing={2}>
+        {product.map((item, index) => (
+          <Grid key={index} item xs={12} sm={6} md={3}>
+          <Card key={item._id} className="carddetail">
+            <CardContent>
+              <Typography>
+                <p >
+                 <img  className="teamimg" src={item.image} alt={item.title} />
+                </p>
+                <p className="dic">{item.title}</p>
+                <p className="dic">{item.description}</p>
+                <span className='acprice'>&#8377;{item.price}</span>
+                <span className="mainprice">
+                  <span>&#8377;{item.price - Math.round((item.offer / 100) * item.price)}</span> 
+                </span>
+                <span className="off">save {item.offer}%</span>
+                <br />
+              
+                <br />
+              </Typography>
+            </CardContent>
+          </Card>
+          </Grid>
+        ))}
+        </Grid>
+        </center>
+      </section>
       <section id="aboutus">
         <center>
           <p className='aboutusheading'>ABOUT US</p>
-          <p className='welcome'>Welcome to <a className='artifexlink' href="">Artifex</a>, your destination for authentic rural handicrafts, organic products, and handloom items.</p>
+          <p className='welcome'>Welcome to <a className='artifexlink' href="">Urban Rural Trade</a>, your destination for authentic rural handicrafts, organic products, and handloom items.</p>
           <div className='ourmission'>
             <p className='heading'>Our Mission</p>
             <Grid className='fetdetail' container spacing={2}>
@@ -195,6 +250,36 @@ function Home() {
 
             </Grid>
           </div>
+        </center>
+      </section>
+      <section className='prodct'>
+      <center>
+      <p className='aboutusheading'>Our latest product</p>
+      <Grid className='teamcon' container spacing={2}>
+        {otherproduct.map((item, index) => (
+          <Grid key={index} item xs={12} sm={6} md={3}>
+          <Card key={item._id} className="carddetail">
+            <CardContent>
+              <Typography>
+                <p >
+                 <img  className="teamimg" src={item.image} alt={item.title} />
+                </p>
+                <p className="dic">{item.title}</p>
+                <p className="dic">{item.description}</p>
+                <span className='acprice'>&#8377;{item.price}</span>
+                <span className="mainprice">
+                  <span>&#8377;{item.price - Math.round((item.offer / 100) * item.price)}</span> 
+                </span>
+                <span className="off">save {item.offer}%</span>
+                <br />
+              
+                <br />
+              </Typography>
+            </CardContent>
+          </Card>
+          </Grid>
+        ))}
+        </Grid>
         </center>
       </section>
       <section id="contactus">
