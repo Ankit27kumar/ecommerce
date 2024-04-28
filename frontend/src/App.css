@@ -122,6 +122,65 @@ color:#8A9A5B !important;
     margin-bottom: 0 !important;
   }
 
+  /* home section  */
+  .home1 {
+    background-color: #FFDB58 !important;
+    color: white !important;
+    padding: 80px !important;
+  }
+  p{
+    margin-bottom: 0 !important;
+  }
+  .homedetail{
+    padding:8% 0 0 5% !important;
+  }
+  .hometitle {
+    font-size: 50px !important;
+    font-weight: bolder !important;
+  }
+  
+  .homedescription {
+    font-size: 20px !important;
+    color: #637381 !important;
+    max-width: 600px !important;
+  }
+  
+  .learnmore {
+    background-color: #f3f4fe !important;
+    color: #ffaa00 !important;
+    margin-top: 40px !important;
+  }
+  
+  .learnmore:hover {
+    color: #f3f4fe !important;
+    background-color: #ffaa00 !important;
+  }
+  @media (max-width: 768px) {
+    .homeimage {
+      width: 100% !important; /* Adjust image width for smaller screens */
+      height: auto !important; /* Maintain aspect ratio */
+    }
+  }
+
+  /* coursel */
+  .slide-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    height: 100% !important;
+  }
+  
+  .image-container {
+    height: 80% !important;
+    width: 40% !important;
+    text-align: center !important; /* Center images horizontally */
+  }
+  
+  .text-container {
+    width: 60% !important;
+    text-align: center !important; /* Center text horizontally */
+  }
+
   /* coursel */
   .slide-content {
     display: flex !important;

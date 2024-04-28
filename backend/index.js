@@ -32,7 +32,7 @@ const productSchema = new mongoose.Schema({
 const Admin = mongoose.model("Admin", adminSchema);
 const User = mongoose.model("User", userSchema);
 const Product = mongoose.model("Product", productSchema);
-mongoose.connect('mongodb+srv://2022007381ankit:JsFPxJpBJV0zUEd2@cluster0.etoup5d.mongodb.net/artifex').then(() => {
+mongoose.connect('mongodb+srv://2022007381ankit:1bDaDuXY1LRgkmZi@cluster0.etoup5d.mongodb.net/artifex').then(() => {
     console.log("Connected to MongoDB");
 }).catch((err) => {
     console.error("Error connecting to MongoDB:", err);
