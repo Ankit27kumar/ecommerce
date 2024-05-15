@@ -2,18 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import axios from 'axios';
+import h1 from '/images/homeimg.png';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Carousel from 'react-bootstrap/Carousel';
-import saree1 from '/images/slider/art1.png';
-import saree2 from '/images/slider/art2.png';
-import frock1 from '/images/slider/painting1.png';
-import frock2 from '/images/slider/painting2.png';
-import suit1 from '/images/slider/pot1.png';
-import suit2 from '/images/slider/pot2.png';
+
 import Dropdown from 'react-bootstrap/Dropdown';
 
 function Shop() {
@@ -52,37 +47,27 @@ function Shop() {
 
  
 
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
+ 
 
-  const slides = [
-    { image1: saree1, image2: saree2, label: 'Hand painted pot', text: 'Buy authentic hand painted product', bgColor: '#FAF3E9' },
-   { image1: suit1, image2: suit2, label: 'Mud Pot', text: 'Buy hand made mud pot', bgColor: '#FAF3E9' }
-  ];
+  
 
   return (
     <>
-    <section id="shopnow">
-        <Carousel activeIndex={index} onSelect={handleSelect}>
-          {slides.map((slide, idx) => (
-            <Carousel.Item key={idx} style={{ backgroundColor: slide.bgColor }}>
-              <div className="slide-content">
-                <div className="image-container">
-                  <img src={slide.image1} alt={`Slide ${idx + 1}`} />
+    <section id="home">
+      <div className='home1'>
+                    <Grid container spacing={2}>
+                        {/* First column */}
+                        <Grid className='homedetail' item xs={12} sm={6} >
+                            <p className='hometitle'>Your Gateway to Global Trends</p>
+                            <p className='homedescription'>ShopSphere is an innovative ecommerce platform offering a curated selection of trending products from around the world, bringing the latest in fashion, tech, home decor, and more right to your doorstep.</p>
+                            <Button className='learnmore' variant="dark" href="#pricing">Shop Now</Button>
+                        </Grid>
+                        {/* Second column */}
+                        <Grid item xs={12} sm={6}  >
+                            <img src={h1} className='homeimage' height="500px" width="500px" />
+                        </Grid>
+                    </Grid>
                 </div>
-                <div className="text-container">
-                  <h3>{slide.label}</h3>
-                  <p>{slide.text}</p>
-                  <Button variant="primary" className="shop-button">Shop Now</Button> {/* Add a button below the text */}
-                </div>
-                <div className="image-container">
-                  <img src={slide.image2} alt={`Slide ${idx + 1}`} />
-                </div>
-              </div>
-            </Carousel.Item>
-          ))}
-        </Carousel>
       </section>
     <section id="shopsection">
     

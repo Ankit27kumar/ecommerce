@@ -54,10 +54,12 @@ function Header() {
 
   return (
     <>
-      <marquee className="uppernav">Welcome to Artifex - Shop Now for Special Discounts!</marquee>
+
+      {/* <marquee className="uppernav">Welcome to Artifex - Shop Now for Special Discounts!</marquee> */}
+
       <Navbar expand="lg" className="bg-body-tertiary mainnav">
         <Container>
-          <Navbar.Brand href="/">Artifex</Navbar.Brand>
+          <Navbar.Brand href="/">ShopSphere</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto navlink">

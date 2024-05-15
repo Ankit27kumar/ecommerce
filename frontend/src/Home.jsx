@@ -14,7 +14,6 @@ import Header from './Header';
 function Home() {
   const [index, setIndex] = useState(0);
   const [product, setProduct] = useState([]);
-  const [otherproduct, getOtherproduct] = useState([]);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -31,11 +30,7 @@ function Home() {
         });
         const data = response.data;
         console.log(data);
-        const items = data.slice(0, 4);
-        const x = Math.round( Math.random())
-        const item2 = data.slice(x, x+4);
-        console.log(item2);
-        getOtherproduct(item2);
+        const items = data.slice(0, 8);
         setProduct(items);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -143,134 +138,7 @@ function Home() {
         </Grid>
         </center>
       </section>
-      <section id="aboutus">
-        <center>
-          <p className='aboutusheading'>ABOUT US</p>
-          <p className='welcome'>Welcome to <a className='artifexlink' href="">Urban Rural Trade</a>, your destination for authentic rural handicrafts, organic products, and handloom items.</p>
-          <div className='ourmission'>
-            <p className='heading'>Our Mission</p>
-            <Grid className='fetdetail' container spacing={2}>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="body1">
-                      <p className='fettitle'>Empower Rural Artisans</p>
-                      <p className='fedetail'>We uplift artisans by providing them with a platform to showcase their crafts and earn fair wages, preserving traditional skills and fostering economic growth.</p>
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="body1">
-                      <p className='fettitle'> Connect Communities</p>
-                      <p className='fedetail'>We bridge the gap between urban and rural communities by offering authentic handmade products, promoting cultural exchange, and celebrating diversity.</p>
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="body1">
-                      <p className='fettitle'> Promote Sustainability</p>
-                      <p className='fedetail'>We advocate for sustainable practices in production and consumption, supporting eco-friendly materials and minimizing environmental impact.</p>
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="body1">
-                      <p className='fettitle'> Create Social Impact</p>
-                      <p className='fedetail'> We aim to make a positive social impact by promoting fair trade, empowering marginalized communities, and contributing to community development.</p>
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-
-            </Grid>
-          </div>
-          <div className='solution'>
-            <p className='heading'>Our Solutions</p>
-            <Grid className='fetdetail' container spacing={2}>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="body1">
-                      <p className='fettitle'> Direct Buying</p>
-                      <p className='fedetail'>Shop directly from artisans, ensuring fair prices and supporting local economies while enjoying unique and high-quality handmade products.</p>
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="body1">
-                      <p className='fettitle'> Artisan Partnerships</p>
-                      <p className='fedetail'> Partner with us to showcase your products and reach a wider audience, benefiting from our marketing and distribution channels.</p>
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="body1">
-                      <p className='fettitle'>Educational Content</p>
-                      <p className='fedetail'> Explore our educational resources to learn about traditional crafts, artisan stories, and the cultural significance behind each product.</p>
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="body1">
-                      <p className='fettitle'> Community Engagement</p>
-                      <p className='fedetail'>Join our community to stay informed about sustainable practices, artisan updates, and opportunities to support meaningful causes.</p>
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-
-            </Grid>
-          </div>
-        </center>
-      </section>
-      <section className='prodct'>
-      <center>
-      <p className='aboutusheading'>Our latest product</p>
-      <Grid className='teamcon' container spacing={2}>
-        {otherproduct.map((item, index) => (
-          <Grid key={index} item xs={12} sm={6} md={3}>
-          <Card key={item._id} className="carddetail">
-            <CardContent>
-              <Typography>
-                <p >
-                 <img  className="teamimg" src={item.image} alt={item.title} />
-                </p>
-                <p className="dic">{item.title}</p>
-                <p className="dic">{item.description}</p>
-                <span className='acprice'>&#8377;{item.price}</span>
-                <span className="mainprice">
-                  <span>&#8377;{item.price - Math.round((item.offer / 100) * item.price)}</span> 
-                </span>
-                <span className="off">save {item.offer}%</span>
-                <br />
-              
-                <br />
-              </Typography>
-            </CardContent>
-          </Card>
-          </Grid>
-        ))}
-        </Grid>
-        </center>
-      </section>
+      
       <section id="contactus">
   <center>
     <p className='aboutusheading'>Contact us</p>

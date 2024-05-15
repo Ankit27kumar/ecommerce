@@ -14,7 +14,7 @@ function Footer() {
         <div className='footer'>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} md={3}>
-                <p className='mainbrand'>RURAL URBAN TRADE</p>
+                <p className='mainbrand'>ShopSphere</p>
                     <p className='fodetail'> Cutting-edge manufacturer of economical and efficient smart home automation systems.</p>
                     <FontAwesomeIcon className='socialhandle'  icon={faFacebookF} size="xl"/>
                     <FontAwesomeIcon className='socialhandle'   icon={faLinkedinIn}  size="xl"/>
