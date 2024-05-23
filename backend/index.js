@@ -32,7 +32,8 @@ const productSchema = new mongoose.Schema({
 const Admin = mongoose.model("Admin", adminSchema);
 const User = mongoose.model("User", userSchema);
 const Product = mongoose.model("Product", productSchema);
-mongoose.connect('mongodb+srv://2022007381ankit:1bDaDuXY1LRgkmZi@cluster0.etoup5d.mongodb.net/artifex').then(() => {
+
+mongoose.connect('mongodb+srv://shopsphere:AeU11sbOHFSpkom9@cluster0.neuuxvp.mongodb.net/Shopsphere').then(() => {
     console.log("Connected to MongoDB");
 }).catch((err) => {
     console.error("Error connecting to MongoDB:", err);
@@ -178,6 +179,19 @@ app.get("/getproduct", async (req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 });
+
+// app.get("/getproduct/:itemId", async (req, res) => {
+//     try {
+//         const { itemId } =req.params.itemId;
+//         console.log(itemId);
+//         const products = await Product.find({ _id: itemId });
+//         console.log(products);
+//         res.json(products);
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ error: 'Server error' });
+//     }
+// });
 
 app.delete("/admin/delete/:productId", authenticateJwt, async (req, res) => {
     try {

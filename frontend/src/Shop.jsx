@@ -97,10 +97,10 @@ function Shop() {
             <CardContent>
               <Typography>
                 <p >
-                 <a href="/{item._id}"> <img  className="teamimg" src={item.image} alt={item.title} /></a>
+                 <a href={`/product/${item._id}`} target="_blank"> <img  className="teamimg" src={item.image} alt={item.title} /></a>
                 </p>
                 <p className="dic">{item.title}</p>
-                <p className="dic">{item.description}</p>
+                
                 <span className='acprice'>&#8377;{item.price}</span>
                 <span className="mainprice">
                   <span>&#8377;{item.price - Math.round((item.offer / 100) * item.price)}</span> 
@@ -115,13 +115,16 @@ function Shop() {
           </Grid>
         ))}
         </Grid>
-        
+        <center>
         <Pagination
         count={Math.ceil(products.length / productsPerPage)}
         page={page}
         onChange={handleChangePage}
         color="primary"
       />
+
+        </center>
+      
       
     </Stack>
     </center>

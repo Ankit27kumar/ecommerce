@@ -405,3 +405,79 @@ p{
   border-style: none !important;
   margin: 20px !important;
 }
+
+/* addproduct */
+#addproduct{
+  padding:4% 8% 3%  8% !important;
+}
+.itemimage{
+  width: 60% !important;
+  height: fit-content !important;
+  margin:5px 50px 10px 50px !important;
+}
+.addcartbutton{
+  background-color: #8A9A5B !important;
+  margin: 10px 50px 50px 50px !important;
+  width: 60% !important;
+}
+.aobutitem{
+  text-align: left !important;
+}
+.productdetail{
+  margin:5px 50px 10px 0px !important;
+}
+.itemtitle{
+  font-size: 50px !important;
+  font-weight: 400 !important;
+}
+.itemdic{
+  font-size: 45px !important;
+  font-weight: 300 !important;
+}
+.recopid{
+  color: black!important;
+  font-size:30px !important;
+  font-weight: 300 !important;
+
+}
+.acprice1{
+  font-size: 25px !important;
+  text-decoration: line-through !important;
+}
+.mainprice1{
+  font-size: 25px !important;
+  margin: 0 10px 0 10px !important;
+}
+.off1{
+  font-size: 25px !important;
+  color:red !important;
+}
+.emioption{
+  text-decoration: none !important;
+  color: #8A9A5B !important;
+}
+.offerbox{
+  display: inline-block !important;
+  margin:10px !important;
+  height: 120px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.offerdet{
+  max-width: 150px !important;
+  font-size: 15px !important;
+}
+.offerhead{
+  font-weight: 400 !important;
+}
+
+@media (max-width: 768px) {
+  .itemtitle {
+   font-size: 30px !important;
+   font-weight: 400 !important;
+  }
+  .itemdic{
+    font-size: 25px !important;
+    font-weight: 300 !important;
+  }
+}

@@ -13,6 +13,7 @@ import Adsignup from './admin/login/Adsignup';
 import Profile from './Profile';
 import Shop from './Shop';
 import Product from './admin/products/Product';
+import AddProduct from './AddProduct';
 
 
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/usersignup" element={<Signup />} />         
           <Route path="/profile" element={<Profile />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/product/:itemId" element={<AddProduct />} />
 
           {/* admin  routes */}
           <Route path="/admin-login" element={<Adsignin />} />
