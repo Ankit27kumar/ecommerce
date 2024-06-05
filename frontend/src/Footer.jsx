@@ -1,11 +1,6 @@
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedinIn, faInstagram,faFacebookF, faTwitter, faYoutube, faDhl, faFedex, faCcVisa, faCcPaypal, faCcMastercard  } from '@fortawesome/free-brands-svg-icons'
 
 

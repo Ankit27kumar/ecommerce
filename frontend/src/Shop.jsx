@@ -8,7 +8,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-
+import { API_URL } from './API_URL';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 function Shop() {
@@ -29,14 +29,14 @@ function Shop() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/getproduct", {
+        const response = await axios.get(`${API_URL}/getproduct`, {
           headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("token")
           }
         });
         const data = response.data;
-        console.log(data);
+        // console.log(data);
         setProducts(data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -100,7 +100,7 @@ function Shop() {
                  <a href={`/product/${item._id}`} target="_blank"> <img  className="teamimg" src={item.image} alt={item.title} /></a>
                 </p>
                 <p className="dic">{item.title}</p>
-                
+                <p className="dic">{item.description}</p>
                 <span className='acprice'>&#8377;{item.price}</span>
                 <span className="mainprice">
                   <span>&#8377;{item.price - Math.round((item.offer / 100) * item.price)}</span> 

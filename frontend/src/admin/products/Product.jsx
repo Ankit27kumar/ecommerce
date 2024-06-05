@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import Form from 'react-bootstrap/Form';
+import { API_URL } from '../../API_URL';
 
 function Product() {
     const [title, getTitle] = useState('');
@@ -21,7 +22,7 @@ function Product() {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get("http://localhost:4000/admin/product", {
+            const response = await axios.get(`${API_URL}/admin/product`, {
               headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + localStorage.getItem("token")

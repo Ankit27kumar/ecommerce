@@ -42,7 +42,6 @@ function Header() {
           }
         });
         const data = response.data;
-        console.log("this is header console");
         console.log(data);
         setUser(data); // Set user state
       } catch (error) {
@@ -147,12 +146,13 @@ function Header() {
                 </Menu>
                 </>
               )}
-
-              <IconButton aria-label="cart">
+               
+              <Nav.Link href="/cart"><IconButton aria-label="cart">
                 <Badge badgeContent={4} color="secondary">
                   <ShoppingCartIcon />
                 </Badge>
-              </IconButton>
+              </IconButton></Nav.Link>
+              
             </Nav>
           </Navbar.Collapse>
         </Container>

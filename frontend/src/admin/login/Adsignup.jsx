@@ -9,8 +9,7 @@ import Link from '@mui/material/Link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons'
-// import Writenode from './Writenode';
-// import { useHistory } from 'react-router-dom';
+import { API_URL } from '../../API_URL';
 
 
 
@@ -24,7 +23,7 @@ function Adsignup() {
 
   function onPress1(event) {
     event.preventDefault();
-    fetch("http://localhost:4000/admin/signup", {
+    fetch(`${API_URL}/admin/signup`, {
       method: "POST",
       body: JSON.stringify({
         username: username,

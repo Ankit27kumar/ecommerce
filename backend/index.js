@@ -2,8 +2,14 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require('dotenv').config();
+const mongoURI = process.env.MONGODB_URI;
+const PORT = process.env.PORT || 4000;
 
-const PORT = 4000;
+
+
+
+// const PORT = 4000;
 const app = express();
 app.use(cors());
 // parse requests of content-type - application
@@ -33,11 +39,13 @@ const Admin = mongoose.model("Admin", adminSchema);
 const User = mongoose.model("User", userSchema);
 const Product = mongoose.model("Product", productSchema);
 
-mongoose.connect('mongodb+srv://shopsphere:AeU11sbOHFSpkom9@cluster0.neuuxvp.mongodb.net/Shopsphere').then(() => {
-    console.log("Connected to MongoDB");
-}).catch((err) => {
-    console.error("Error connecting to MongoDB:", err);
-});
+mongoose.connect(mongoURI)
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((err) => {
+    console.error('Error connecting to MongoDB:', err);
+  });
 
 const authenticateJwt = (req, res, next) => {
     const authHeader = req.headers.authorization;
@@ -95,12 +103,19 @@ app.post("/admin/signin", async(req,  res)=>{
 app.get("/username", authenticateJwt , async(req, res)=>{
     const user = req.user.username;
     const admin = await Admin.findOne({username: user});
+    const userid = await User.findOne({username: user});
     if(admin){
         res.json({
             username: admin.username
         })
         console.log(admin);
-    }else{
+    }else if(userid){
+        res.json({
+            username: userid.username
+            })
+            console.log(userid);
+    }
+    else{
         res.status(403).json({message: 'Invalid Credentials'})
     }
 })
@@ -180,18 +195,50 @@ app.get("/getproduct", async (req, res) => {
     }
 });
 
-// app.get("/getproduct/:itemId", async (req, res) => {
-//     try {
-//         const { itemId } =req.params.itemId;
-//         console.log(itemId);
-//         const products = await Product.find({ _id: itemId });
-//         console.log(products);
-//         res.json(products);
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ error: 'Server error' });
-//     }
-// });
+app.get("/getproduct/:itemId", async (req, res) => {
+    try {
+        const { itemId } = req.params; // Corrected this line
+        // console.log(itemId);
+        const products = await Product.find({ _id: itemId });
+        // console.log(products);
+        res.json(products);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+app.post("/addcart/:itemId",authenticateJwt, async(req, res) => {
+    try{
+        const { itemId } = req.params;
+        const user = await User.findOne({username: req.user.username});
+        if(user){
+            user.productitem.push(itemId);
+            await user.save();
+            res.json({ message: 'Product added to cart' });
+            console.log("product added to cart sucessfuly");
+        } else {
+            res.status(403).json({message:"User not found"})
+        }
+    }catch(error){
+        console.log(error);
+        res.status(500).json({error:"server error"});
+    }
+})
+
+app.get("/getcart", authenticateJwt, async(req, res) => {
+    try{
+        const user = await User.findOne({username: req.user.username}).populate('productitem');
+        if(user){
+            res.json(user.productitem);
+            console.log(user.productitem)
+            } else {
+                res.status(403).json({message:"User not found"})
+            }
+    } catch(error){
+        res.status(500).json({error:"server error"});
+    }    
+})
+
 
 app.delete("/admin/delete/:productId", authenticateJwt, async (req, res) => {
     try {

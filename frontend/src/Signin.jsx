@@ -10,8 +10,7 @@ import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons'
-// import Writenode from './Writenode';
-// import { useHistory } from 'react-router-dom';
+import { API_URL } from './API_URL';
 
 
 
@@ -24,9 +23,8 @@ function Signin() {
   // const history = useHistory(); 
 
   function onPress(event) {
-    console.log("Control is here");
     event.preventDefault(); // Prevent default form submission
-    fetch("http://localhost:4000/user/signin", {
+    fetch(`${API_URL}/user/signin`, {
       method: "POST",
       body: JSON.stringify({
         username: username,
@@ -34,7 +32,6 @@ function Signin() {
       }),
       headers: {
         "Content-Type": "application/json",
-        // "Authorization": "Bearer " + localStorage.getItem("token")
       }
     }).then(resp => resp.json())
       .then(data => {

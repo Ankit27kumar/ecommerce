@@ -10,6 +10,7 @@ import Grid from '@mui/material/Grid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faRankingStar, faTag, faShield, faLocationDot, faPhoneVolume, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import Header from './Header';
+import { API_URL } from './API_URL';
 
 function Home() {
   const [index, setIndex] = useState(0);
@@ -22,7 +23,7 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/getproduct", {
+        const response = await axios.get(`${API_URL}/getproduct`, {
           headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("token")
