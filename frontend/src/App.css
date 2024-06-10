@@ -1,4 +1,8 @@
 /* navbar */
+
+body{
+  font-family: Assistant, Helvetica, Arial, sans-serif !important;
+}
 .navbar-brand{
   font-size: 34px !important;
   color:black !important;
@@ -486,7 +490,160 @@ p{
 }
 
 /* cart section  */
-.productcart{
-  margin:50px !important;
+#cart{
+  padding:40px 120px 30px  120px !important;
+}
+.carbox{
+  margin:20px !important;
+  
+}
+.deliverytime{
+  border:1px solid #fff6f4 !important;
+  background-color: #fff6f4 !important;
+  padding:16px !important;
+  font-size: 15px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin: 10px 0 !important;
+}
+.enterpin{
+  font-size: 12px !important;
+  display: inline !important;
+  padding: 8px !important;
+  border: 1px solid #ff3f6c !important;
+  border-radius: 4px !important;
+  margin-right: 0 !important;
+  font-weight: 700 !important;
+  color: #ff3f6c !important;
+}
+.dis{
+  margin-bottom: 10px !important;
+}
+.offerdetails{
+  font-size: 15px !important;
+  padding-top: 5px !important;
+  padding-left: 15px !important;
+  text-indent: -15px !important;
+  list-style: none !important;
+  white-space: normal !important;
+  margin-bottom: 8px !important;
+  margin-top: 10px !important;
+}
 
+.availoffer{
+  margin-top: 15px !important;
+}
+
+.showmore{
+  color:#ff3f6c !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+}
+.pricecard{
+  font-size: 15px !important;
+}
+
+.numpric{
+  text-align: right !important;
+}
+.prodet{
+vertical-align: top !important;
+padding-left: 15px !important;
+}
+.prcard{
+  margin-top: 10px !important;
+}
+.pricddetail{
+  margin-top: 10px !important;
+}
+
+.paraise{
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin: 10px 0 !important;
+}
+.plcorder{
+  color:white !important;
+  font-size: 12px !important;
+  display: inline !important;
+  padding: 8px !important;
+  border: 1px solid #ff3f6c !important;
+  border-radius: 4px !important;
+  margin-right: 0 !important;
+  font-weight: 700 !important;
+  background-color: #ff3f6c !important;
+  width: 100% !important;
+}
+.size{
+  border-style: none !important;
+}
+
+.prsize{
+  /* margin-bottom: 10px !important; */
+  padding:7px !important;
+  background-color: #f5f5f6 !important;
+  display: inline !important;
+}
+
+.abc{
+  margin-left: 15px !important;
+  /* margin-bottom: 10px !important; */
+}
+.return{
+  margin-top:10px !important;
+  color:#282c3f !important;
+}
+.prdetail{
+  margin-top: 10px !important;
+}
+
+#shopcon{
+  background-image: url(hero-slider-4-min.jpg) !important;
+  filter: brightness(0.7) !important;
+  margin: 40px !important;
+  background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    /* height: 70vh !important;  */
+}
+#shopof{
+  background-image: url(hero-slider-3-min.jpg) !important;
+  filter: brightness(0.7) !important;
+  margin: 40px !important;
+  background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    /* height: 70vh !important;  */
+}
+
+.summerpromo{
+  color:white !important;
+  text-decoration: underline !important;
+  font-size: 50px !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+.cntr{
+  margin: 50px !important;
+  line-height: 1.5 !important;
+
+}
+.limoffer{
+  padding-top: 90px !important;
+  color:white !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+.offerdetails{
+    font-size: 17px !important;
+  color:white !important;
+  padding:10px 140px 50px 140px !important;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+.shopnow{
+  background-color: black !important;
+  color:white !important;
+  border:1px solid black !important; 
+  padding:10px !important;
+  margin-bottom: 30px !important;
 }

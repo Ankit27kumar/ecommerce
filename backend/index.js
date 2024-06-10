@@ -230,7 +230,7 @@ app.get("/getcart", authenticateJwt, async(req, res) => {
         const user = await User.findOne({username: req.user.username}).populate('productitem');
         if(user){
             res.json(user.productitem);
-            console.log(user.productitem)
+            // console.log(user.productitem)
             } else {
                 res.status(403).json({message:"User not found"})
             }

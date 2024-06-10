@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, createContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,11 +12,16 @@ import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom';
+// import { CountproductContext } from './Cart';
+
+// const CountproductContext = createContext();
 
 function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [user, setUser] = React.useState(""); // Initialize user state with null
   const [token, setToken] = useState(localStorage.getItem('token')); // Initialize token state with the token from localStorage
+  // const { count } = useContext(CountproductContext);
+  // console.log(count);
 
   const logout = () => {
     localStorage.removeItem('token')

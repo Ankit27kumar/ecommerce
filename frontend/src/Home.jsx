@@ -109,6 +109,17 @@ function Home() {
 
         </Grid>
       </section>
+      <section id="shopcon">
+        <center className="cntr">
+          <p className="limoffer">LIMITED OFFERS 20% OFF</p>
+          <h4 className="summerpromo">Summer Promo</h4>
+          <p className="offerdetails">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.</p>
+          <button className="shopnow">Shop Now</button>
+          
+
+        </center>
+
+      </section>
       <section className='prodct'>
       <center>
       <p className='aboutusheading'>Our latest product</p>
@@ -139,7 +150,19 @@ function Home() {
         </Grid>
         </center>
       </section>
+      <div>
       
+      <section id="shopof">
+        <center className="cntr">
+          <p className="limoffer">LIMITED OFFERS 20% OFF</p>
+          <h4 className="summerpromo">Summer Promo</h4>
+          <p className="offerdetails">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.</p>
+          <button className="shopnow" href="/men">Shop Now</button>
+        </center>
+
+      </section>
+      
+    </div>
       <section id="contactus">
   <center>
     <p className='aboutusheading'>Contact us</p>
